@@ -1,0 +1,13 @@
+G:\OneDrive\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\BasesB\BasesB\BasesB\bin\Debug\BasesB.exe.config
+G:\OneDrive\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\BasesB\BasesB\BasesB\obj\Debug\BasesB.csprojResolveAssemblyReference.cache
+G:\OneDrive\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\BasesB\BasesB\BasesB\bin\Debug\BasesB.exe
+G:\OneDrive\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\BasesB\BasesB\BasesB\bin\Debug\BasesB.pdb
+G:\OneDrive\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\BasesB\BasesB\BasesB\obj\Debug\BasesB.Form1.resources
+G:\OneDrive\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\BasesB\BasesB\BasesB\obj\Debug\BasesB.Logins.registro_vendedor.resources
+G:\OneDrive\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\BasesB\BasesB\BasesB\obj\Debug\BasesB.menu_principal.resources
+G:\OneDrive\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\BasesB\BasesB\BasesB\obj\Debug\BasesB.Properties.Resources.resources
+G:\OneDrive\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\BasesB\BasesB\BasesB\obj\Debug\BasesB.csproj.GenerateResource.Cache
+G:\OneDrive\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\BasesB\BasesB\BasesB\obj\Debug\BasesB.exe
+G:\OneDrive\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\BasesB\BasesB\BasesB\obj\Debug\BasesB.pdb
+G:\OneDrive\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\BasesB\BasesB\BasesB\obj\Debug\BasesB.Logins.registro_admins.resources
+G:\OneDrive\OneDrive - Universidad Autonoma de San Luis Potosi - UASLP\BasesB\BasesB\BasesB\obj\Debug\BasesB.registro_cliente.resources
