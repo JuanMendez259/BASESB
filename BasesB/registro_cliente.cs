@@ -14,22 +14,28 @@ namespace BasesB
     public partial class registro_cliente : Form
     {
         private bool error;
+        public List<cliente> aux_cliente;
+        public List<clase_esquemaFragmentacion> aux_esquema;
+        string[] atri;
 
         /*DATOS DEL CLIENTE*/
+        int idCliente;
         string nombre, apellidoP, apellidoM;
-        DateTime fechaNacimiento;
+        string fechaNacimiento;
         string celular;
 
         /*DATOS DEL DOMICILIO*/
+        int idDomicilio;
         string calle, colonia, municipio;
         string numExt, numInt;
         string CP;
         string tel;
-        bool dirActual;
+        int dirActual;
 
         /*DATOS DEL RESULTADO DE EVALUACION*/
+        int idEVAR;
         string folioEVAR;
-        DateTime fechaEVAR;
+        string fechaEVAR;
         string Asesor;
         string Vendedor;
         string Resultado;
@@ -133,31 +139,22 @@ namespace BasesB
 
         private void button_registrar_Click(object sender, EventArgs e)
         {
-            checa_localizacion();
+            inserta_datosCliente();
+            inserta_datosDomicilio();
 
-                
+
+
         }
 
-        public void checa_localizacion()
+        public void checa_localizacion(string var)
         {
-            abrirConexion_db();
-            string cad_consulta;
-            cad_consulta = "SELECT IDFRAGMENTO, NOMBRE_FRAG, NOMBRE_TABLA, SITIO"+
-                            "FROM ESQUEMA_LOCALIZACION";
-            command = new OleDbCommand(cad_consulta, conn_esquemaFragmentacion);
-            reader = command.ExecuteReader();
-
-            // while (reader.Read())
-            // {
-                idFragmento = Convert.ToInt32(reader["IDFRAGMENTO"]);
-                nomFragmento = reader["NOMBRE_FRAG"].ToString();
-                nomTabla = reader["NOMBRE_TABLA"].ToString();
-                tipoFragmentacion = reader["TIPO_FRAG"].ToString();
-                sitio = Convert.ToInt32( reader["SITIO"]);
-            //  }
-            //MessageBox.Show("Termino");
-            cerrarConexion_db();
-
+            List<clase_esquemaFragmentacion> lista = clase_consultas.consulta_esquema(var);
+            List<int> cto = new List<int>();
+            //string[] atri;
+            aux_esquema = new List<clase_esquemaFragmentacion>();
+            aux_esquema = lista;
+            cto= clase_consultas.cuenta_atributos(aux_esquema);
+            atri= clase_consultas.consulta_atributos(aux_esquema, cto);
         }
 
         private void cerrarConexion_db()
@@ -165,39 +162,95 @@ namespace BasesB
             conexion.Close();
             //MessageBox.Show("cerrada");
         }
+        public void saca_idCliente()
+        {
+            string query;
+
+            conn_sitio1.Open();
+            if(conn_sitio1.State!= ConnectionState.Open) { return; }
+            string sto = aux_esquema[0].c_nomFragmento;
+
+            query = "SELECT IDCLIENTE FROM CLIENTE1 WHERE NOMBRE="+ "'"+ nombre +"'" +
+                    " AND APELLIDOP=" + "'" + apellidoP + "'"+ 
+                    " AND APELLIDOM=" + "'" + apellidoM + "'"+
+                    " AND NUMCONTACTO=" + "'" + celular+ "'";
+
+            //comando = new OleDbCommand(query, conn_sitio1);
+            //adaptador = new OleDbDataAdapter(comando);
+
+            OleDbCommand consulta = new OleDbCommand(string.Format(query), conn_sitio1);
+            OleDbDataReader reader = consulta.ExecuteReader();
+
+            while (reader.Read())
+            {
+                idCliente = Convert.ToInt32(reader["IDCLIENTE"]);
+            }
+            conn_sitio1.Close();
+
+            //return idCliente;
+        }
         public void inserta_datosCliente()
         {
+            int op;
+            string var = "CLIENTE";
+            string[] fecha_Nacimiento;
             try
             {
+                checa_localizacion(var);
                 /*DATOS DEL CLIENTE*/
                 nombre = textBox_nombre.Text;
                 apellidoP = textBox_apeidoP.Text;
                 apellidoM = textBox_apeidoM.Text;
-                //fechaNacimiento = dateTime_nacimiento
+
+                fechaNacimiento = dateTime_nacimiento.Value.ToString();
+                fecha_Nacimiento = fechaNacimiento.Split(' ');
+                fechaNacimiento = fecha_Nacimiento[0];
+
                 celular = textBox_numContacto.Text;
 
-                conexion.Open();
-                if (conexion.State != ConnectionState.Open)
+                string sto = aux_esquema[0].c_nomFragmento;
+                string datos=null;
+
+                for (int i=1; i< atri.Count(); i++)
+                {
+                    datos = datos + "," + atri[i];
+                }
+                if (datos.StartsWith(","))
+                    datos = datos.Substring(1);
+
+
+                conn_sitio1.Open();
+                if (conn_sitio1.State != ConnectionState.Open)
                 {
                     return;
                 }
-                comando = new OleDbCommand(
-                    "INSERT INTO Informacion_Cliente.Cliente(nombre, apellidoP, apellidoM, fechaNacimiento, celular) VALUES" +
-                    "('" + nombre + "','" + apellidoP + "'," + apellidoM + "'," + fechaNacimiento + "'," + celular + "')", conexion);
+                string query;
+                query = "INSERT INTO " + sto + "("+ datos +") VALUES" +
+                    "('" + nombre + "','" + apellidoP + "','" +apellidoM + "','" + fechaNacimiento + "','" + celular + "')";
+
+                comando = new OleDbCommand(query, conn_sitio1);
                 comando.ExecuteNonQuery();
-                conexion.Close();
+                MessageBox.Show("Se inserto con exito");
+                conn_sitio1.Close();
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudo realizar la consulta" + ex.Message);
-                conexion.Close();
+                conn_sitio1.Close();
             }
         }
         public void inserta_datosDomicilio()
         {
+            string var = "DOMICILIO";
+            //string sto = aux_esquema[0].c_nomFragmento;
+            //string nomFrag = null;
+            //nomFrag = aux_esquema[0].c_nomFragmento; 
+            
             try
             {
+                checa_localizacion(var);
+                saca_idCliente();
                 /*DATOS DEL DOMICILIO*/
                 calle = textBox_calle.Text;
                 colonia = textBox_colonia.Text;
@@ -207,28 +260,53 @@ namespace BasesB
                 CP = textBox_CP.Text;
                 tel = textBox_tel.Text;
 
+                //si es falso se va al sitio2 
                 if (checkBox_dirActual.Checked == false)
-                    dirActual = false;
-                else
-                    dirActual = true;
-
-                conexion.Open();
-                if (conexion.State != ConnectionState.Open)
                 {
-                    return;
+                    dirActual = 0;
+                    MessageBox.Show("va al sitio2");
                 }
-                comando = new OleDbCommand(
-                    "INSERT INTO Informacion_Cliente.Domicilio(calle, numInt, numExt, colonia, municipio, numLocal, CP, dirActual) VALUES" +
-                    "('" + calle + "','" + numInt + "'," + numExt + "'," + colonia + "'," + municipio + "'," + tel + "'," + CP + "'," + dirActual + "')", conexion);
-                comando.ExecuteNonQuery();
-                conexion.Close();
+                    
+                else //si es verdadero se va al sitio1
+                {
+                    conn_sitio1.Open();
+                    dirActual = 1;
+                    string sto = aux_esquema[0].c_nomFragmento;
+                    string datos = null;
 
+                    for (int i = 1; i < atri.Count(); i++)
+                    {
+                        datos = datos + "," + atri[i];
+                    }
+                    if (datos.StartsWith(","))
+                        datos = datos.Substring(1);
+
+                    
+                    if (conn_sitio1.State != ConnectionState.Open)
+                    {
+                        return;
+                    }
+                    string query = null;
+                    query =
+                        "INSERT INTO " + sto + "(" + datos + ") VALUES" +
+                        "("+ idCliente + " ,CONVERT(BIT," + "'"+dirActual+"'"+")" + " ,'" + calle + "' ," + "'" +numInt + "' ," + "'"+numExt + "' ," + "'"+CP + "' ," +"'"+ colonia + "' ," + "'"+municipio + "')";
+                    comando = new OleDbCommand(query, conn_sitio1);
+                    comando.ExecuteNonQuery();
+                    conn_sitio1.Close();
+                    MessageBox.Show("Se ingreso Correctamente Domicilio");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo realizar la consulta" + ex.Message);
+                MessageBox.Show("No se pudo realizar la consulta " + ex.Message);
                 conexion.Close();
             }
+            //conexion.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         public void inserta_resEVAR()
@@ -238,7 +316,7 @@ namespace BasesB
                 /*DATOS DEL RESULTADO DE EVALUACION*/
                 folioEVAR = textBox_EVAR.Text;
                 //fechaEVAR = dateTimePicker_fechaEVAR.Value.Date;
-                fechaEVAR = Convert.ToDateTime(dateTimePicker_fechaEVAR.Value.ToShortDateString());
+                fechaEVAR = dateTimePicker_fechaEVAR.Value.ToString();
                 Asesor = textBox_Asesor.Text;
                 Vendedor = comboBox_Vendedor.SelectedItem.ToString();
                 Resultado = comboBoxResultado.SelectedItem.ToString();

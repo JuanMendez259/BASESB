@@ -1,6 +1,6 @@
 ﻿namespace BasesB
 {
-    partial class Form1
+    partial class login
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(login));
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.boton_login = new System.Windows.Forms.Button();
             this.textBox_contraseña = new System.Windows.Forms.TextBox();
             this.textBox_usuario = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.comboBox_TipoUsuario = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,7 +44,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(71, 285);
+            this.label5.Location = new System.Drawing.Point(71, 353);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(102, 20);
             this.label5.TabIndex = 14;
@@ -52,7 +54,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(82, 224);
+            this.label3.Location = new System.Drawing.Point(82, 292);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 20);
             this.label3.TabIndex = 13;
@@ -62,7 +64,7 @@
             // 
             this.boton_login.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.boton_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boton_login.Location = new System.Drawing.Point(74, 370);
+            this.boton_login.Location = new System.Drawing.Point(74, 453);
             this.boton_login.Name = "boton_login";
             this.boton_login.Size = new System.Drawing.Size(79, 34);
             this.boton_login.TabIndex = 12;
@@ -73,7 +75,7 @@
             // textBox_contraseña
             // 
             this.textBox_contraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_contraseña.Location = new System.Drawing.Point(12, 317);
+            this.textBox_contraseña.Location = new System.Drawing.Point(12, 385);
             this.textBox_contraseña.Name = "textBox_contraseña";
             this.textBox_contraseña.PasswordChar = '*';
             this.textBox_contraseña.Size = new System.Drawing.Size(210, 26);
@@ -84,7 +86,7 @@
             // textBox_usuario
             // 
             this.textBox_usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_usuario.Location = new System.Drawing.Point(12, 250);
+            this.textBox_usuario.Location = new System.Drawing.Point(12, 318);
             this.textBox_usuario.Name = "textBox_usuario";
             this.textBox_usuario.Size = new System.Drawing.Size(210, 26);
             this.textBox_usuario.TabIndex = 10;
@@ -101,18 +103,42 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // Form1
+            // comboBox_TipoUsuario
+            // 
+            this.comboBox_TipoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_TipoUsuario.FormattingEnabled = true;
+            this.comboBox_TipoUsuario.Items.AddRange(new object[] {
+            "ADMINISTRADOR",
+            "VENDEDOR"});
+            this.comboBox_TipoUsuario.Location = new System.Drawing.Point(12, 255);
+            this.comboBox_TipoUsuario.Name = "comboBox_TipoUsuario";
+            this.comboBox_TipoUsuario.Size = new System.Drawing.Size(211, 28);
+            this.comboBox_TipoUsuario.TabIndex = 15;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(63, 232);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 20);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Tipo Usuario";
+            // 
+            // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(235, 423);
+            this.ClientSize = new System.Drawing.Size(235, 503);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboBox_TipoUsuario);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.boton_login);
             this.Controls.Add(this.textBox_contraseña);
             this.Controls.Add(this.textBox_usuario);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "Form1";
+            this.Name = "login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -130,6 +156,8 @@
         private System.Windows.Forms.TextBox textBox_contraseña;
         private System.Windows.Forms.TextBox textBox_usuario;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox comboBox_TipoUsuario;
+        private System.Windows.Forms.Label label1;
     }
 }
 

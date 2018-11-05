@@ -13,9 +13,14 @@ namespace BasesB
 {
     public partial class menu_principal : Form
     {
-        public menu_principal()
+        string tipo_usuario;
+        List<TabPage> AllTabPages;
+
+        public menu_principal(string tipo_user)
         {
             InitializeComponent();
+            tipo_usuario = tipo_user;
+            AllTabPages = new List<TabPage>();
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -25,9 +30,9 @@ namespace BasesB
 
         private void registroVendedor_Click(object sender, EventArgs e)
         {
-            registro_vendedor vendedor = new registro_vendedor();
-            vendedor.Show();
+
         }
+        
 
         private void pictureBox_admins_Click(object sender, EventArgs e)
         {
@@ -39,6 +44,14 @@ namespace BasesB
         {
             registro_cliente cliente = new registro_cliente();
             cliente.Show();
+        }
+
+        private void menu_principal_Load(object sender, EventArgs e)
+        {
+            if (tipo_usuario == "VENDEDOR")
+                pictureBox_admins.Enabled = false;
+
+
         }
     }
 }

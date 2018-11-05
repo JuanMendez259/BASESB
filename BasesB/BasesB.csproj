@@ -48,6 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clase_conexion.cs" />
+    <Compile Include="clase_consultas.cs" />
+    <Compile Include="clase_esquemaFragmentacion.cs" />
+    <Compile Include="cliente.cs" />
     <Compile Include="consultas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,17 +69,11 @@
     <Compile Include="registro_linea.Designer.cs">
       <DependentUpon>registro_linea.cs</DependentUpon>
     </Compile>
-    <Compile Include="Logins\registro_admins.cs">
+    <Compile Include="registros\registro_admins.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Logins\registro_admins.Designer.cs">
+    <Compile Include="registros\registro_admins.Designer.cs">
       <DependentUpon>registro_admins.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Logins\registro_vendedor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Logins\registro_vendedor.Designer.cs">
-      <DependentUpon>registro_vendedor.cs</DependentUpon>
     </Compile>
     <Compile Include="menu_principal.cs">
       <SubType>Form</SubType>
@@ -111,11 +108,8 @@
     <EmbeddedResource Include="registro_linea.resx">
       <DependentUpon>registro_linea.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Logins\registro_admins.resx">
+    <EmbeddedResource Include="registros\registro_admins.resx">
       <DependentUpon>registro_admins.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Logins\registro_vendedor.resx">
-      <DependentUpon>registro_vendedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menu_principal.resx">
       <DependentUpon>menu_principal.cs</DependentUpon>

@@ -117,18 +117,19 @@
             this.button4.BackColor = System.Drawing.Color.LightCoral;
             this.button4.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(631, 735);
+            this.button4.Location = new System.Drawing.Point(631, 692);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(102, 29);
             this.button4.TabIndex = 60;
             this.button4.Text = "Cancelar";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button_registrar
             // 
             this.button_registrar.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.button_registrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_registrar.Location = new System.Drawing.Point(12, 735);
+            this.button_registrar.Location = new System.Drawing.Point(12, 692);
             this.button_registrar.Name = "button_registrar";
             this.button_registrar.Size = new System.Drawing.Size(153, 29);
             this.button_registrar.TabIndex = 59;
@@ -343,7 +344,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(233, 464);
+            this.label5.Location = new System.Drawing.Point(233, 428);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(287, 25);
             this.label5.TabIndex = 65;
@@ -353,7 +354,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(12, 553);
+            this.label10.Location = new System.Drawing.Point(12, 517);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(59, 20);
             this.label10.TabIndex = 68;
@@ -363,7 +364,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(12, 521);
+            this.label11.Location = new System.Drawing.Point(12, 485);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(92, 20);
             this.label11.TabIndex = 66;
@@ -372,7 +373,7 @@
             // textBox_Asesor
             // 
             this.textBox_Asesor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Asesor.Location = new System.Drawing.Point(146, 547);
+            this.textBox_Asesor.Location = new System.Drawing.Point(146, 511);
             this.textBox_Asesor.Name = "textBox_Asesor";
             this.textBox_Asesor.Size = new System.Drawing.Size(198, 26);
             this.textBox_Asesor.TabIndex = 69;
@@ -380,7 +381,7 @@
             // textBox_EVAR
             // 
             this.textBox_EVAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_EVAR.Location = new System.Drawing.Point(146, 515);
+            this.textBox_EVAR.Location = new System.Drawing.Point(146, 479);
             this.textBox_EVAR.Name = "textBox_EVAR";
             this.textBox_EVAR.Size = new System.Drawing.Size(198, 26);
             this.textBox_EVAR.TabIndex = 67;
@@ -389,7 +390,7 @@
             // 
             this.dateTimePicker_fechaEVAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker_fechaEVAR.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_fechaEVAR.Location = new System.Drawing.Point(526, 516);
+            this.dateTimePicker_fechaEVAR.Location = new System.Drawing.Point(526, 480);
             this.dateTimePicker_fechaEVAR.Name = "dateTimePicker_fechaEVAR";
             this.dateTimePicker_fechaEVAR.Size = new System.Drawing.Size(207, 26);
             this.dateTimePicker_fechaEVAR.TabIndex = 71;
@@ -398,7 +399,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(395, 521);
+            this.label16.Location = new System.Drawing.Point(395, 485);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(103, 20);
             this.label16.TabIndex = 70;
@@ -408,7 +409,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(395, 553);
+            this.label17.Location = new System.Drawing.Point(395, 517);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(82, 20);
             this.label17.TabIndex = 72;
@@ -424,7 +425,7 @@
             "REGULAR",
             "EXCELENTE",
             "ADEUDO"});
-            this.comboBoxResultado.Location = new System.Drawing.Point(526, 545);
+            this.comboBoxResultado.Location = new System.Drawing.Point(526, 509);
             this.comboBoxResultado.Name = "comboBoxResultado";
             this.comboBoxResultado.Size = new System.Drawing.Size(207, 28);
             this.comboBoxResultado.TabIndex = 73;
@@ -432,7 +433,7 @@
             // textBox_Observaciones
             // 
             this.textBox_Observaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Observaciones.Location = new System.Drawing.Point(16, 622);
+            this.textBox_Observaciones.Location = new System.Drawing.Point(16, 586);
             this.textBox_Observaciones.Multiline = true;
             this.textBox_Observaciones.Name = "textBox_Observaciones";
             this.textBox_Observaciones.Size = new System.Drawing.Size(489, 71);
@@ -442,7 +443,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(278, 585);
+            this.label18.Location = new System.Drawing.Point(278, 549);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(199, 25);
             this.label18.TabIndex = 75;
@@ -458,7 +459,7 @@
             "REGULAR",
             "EXCELENTE",
             "ADEUDO"});
-            this.comboBox_Vendedor.Location = new System.Drawing.Point(526, 622);
+            this.comboBox_Vendedor.Location = new System.Drawing.Point(526, 586);
             this.comboBox_Vendedor.Name = "comboBox_Vendedor";
             this.comboBox_Vendedor.Size = new System.Drawing.Size(207, 28);
             this.comboBox_Vendedor.TabIndex = 77;
@@ -467,7 +468,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(592, 673);
+            this.label19.Location = new System.Drawing.Point(592, 637);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(79, 20);
             this.label19.TabIndex = 76;
@@ -495,7 +496,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 836);
+            this.ClientSize = new System.Drawing.Size(755, 745);
             this.Controls.Add(this.textBox_municipio);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.comboBox_Vendedor);
